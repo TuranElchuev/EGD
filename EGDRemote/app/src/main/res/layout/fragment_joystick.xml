@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JoystickFragment"
+    android:id="@+id/joystick_panel"
+    android:background="@color/joystick_background">
+
+    <ImageView
+        android:layout_width="@dimen/joystick_arrow_size"
+        android:layout_height="@dimen/joystick_arrow_size"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_keyboard_arrow_left_white_48dp"
+        android:layout_marginStart="@dimen/joystick_panel_padding_horizontal" />
+
+    <ImageView
+        android:layout_width="@dimen/joystick_arrow_size"
+        android:layout_height="@dimen/joystick_arrow_size"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_keyboard_arrow_right_white_48dp"
+        android:layout_marginEnd="@dimen/joystick_panel_padding_horizontal" />
+
+    <ImageView
+        android:layout_width="@dimen/joystick_arrow_size"
+        android:layout_height="@dimen/joystick_arrow_size"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_keyboard_arrow_up_white_48dp"
+        android:layout_marginTop="@dimen/joystick_panel_padding_vertical" />
+
+    <ImageView
+        android:layout_width="@dimen/joystick_arrow_size"
+        android:layout_height="@dimen/joystick_arrow_size"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_keyboard_arrow_down_white_48dp"
+        android:layout_marginBottom="@dimen/joystick_panel_padding_vertical"/>
+
+    <View
+        android:id="@+id/joystick"
+        android:visibility="invisible"
+        android:layout_width="@dimen/joystick_size"
+        android:layout_height="@dimen/joystick_size"
+        android:background="@drawable/shape_joystick"/>
+
+</RelativeLayout>

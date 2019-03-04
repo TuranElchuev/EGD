@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="service_fragment_button_size">40dp</dimen>
+    <dimen name="service_fragment_btn_margin">2dp</dimen>
+    <dimen name="service_fragment_btn_padding">7dp</dimen>
+
+    <dimen name="joystick_fragment_width">180dp</dimen>
+    <dimen name="joystick_arrow_size">60dp</dimen>
+    <dimen name="joystick_panel_padding_horizontal">20dp</dimen>
+    <dimen name="joystick_panel_padding_vertical">60dp</dimen>
+    <dimen name="joystick_touch_panel_margin">30dp</dimen>
+    <dimen name="joystick_size">50dp</dimen>
+
+    <dimen name="controls_fragment_width">100dp</dimen>
+    <dimen name="controls_fragment_padding">0dp</dimen>
+    <dimen name="controls_fragmenment_component_margin">5dp</dimen>
+    <dimen name="controls_fragmenment_button_size">60dp</dimen>
+
+
+
+    <dimen name="btn_corner_radius">30dp</dimen>
+
+</resources>

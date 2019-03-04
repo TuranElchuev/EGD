@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ServiceFragment"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/btn_connect"
+            android:layout_width="@dimen/service_fragment_button_size"
+            android:layout_height="@dimen/service_fragment_button_size"
+            android:src="@drawable/ic_bluetooth_white_48dp"
+            android:scaleType="centerInside"
+            android:background="@drawable/selector_switch_off"
+            android:layout_margin="@dimen/service_fragment_btn_margin"
+            android:padding="@dimen/service_fragment_btn_padding"/>
+
+        <ImageButton
+            android:id="@+id/btn_log"
+            android:layout_width="@dimen/service_fragment_button_size"
+            android:layout_height="@dimen/service_fragment_button_size"
+            android:src="@drawable/ic_list_white_48dp"
+            android:scaleType="centerInside"
+            android:background="@drawable/selector_switch_on"
+            android:layout_margin="@dimen/service_fragment_btn_margin"
+            android:padding="@dimen/service_fragment_btn_padding"/>
+
+        <ImageButton
+            android:id="@+id/btn_autoscroll"
+            android:layout_width="@dimen/service_fragment_button_size"
+            android:layout_height="@dimen/service_fragment_button_size"
+            android:src="@drawable/ic_arrow_downward_white_48dp"
+            android:scaleType="centerInside"
+            android:background="@drawable/selector_switch_on"
+            android:layout_margin="@dimen/service_fragment_btn_margin"
+            android:padding="@dimen/service_fragment_btn_padding"/>
+
+        <ImageButton
+            android:id="@+id/btn_clear_log"
+            android:layout_width="@dimen/service_fragment_button_size"
+            android:layout_height="@dimen/service_fragment_button_size"
+            android:src="@drawable/ic_delete_white_48dp"
+            android:scaleType="centerInside"
+            android:background="@drawable/selector_switch_off"
+            android:layout_margin="@dimen/service_fragment_btn_margin"
+            android:padding="@dimen/service_fragment_btn_padding"/>
+
+        <ImageButton
+            android:id="@+id/btn_share"
+            android:layout_width="@dimen/service_fragment_button_size"
+            android:layout_height="@dimen/service_fragment_button_size"
+            android:src="@drawable/ic_share_white_48dp"
+            android:scaleType="centerInside"
+            android:background="@drawable/selector_switch_off"
+            android:layout_margin="@dimen/service_fragment_btn_margin"
+            android:padding="@dimen/service_fragment_btn_padding"/>
+
+        <ImageButton
+            android:id="@+id/btn_video"
+            android:layout_width="@dimen/service_fragment_button_size"
+            android:layout_height="@dimen/service_fragment_button_size"
+            android:src="@drawable/ic_videocam_off_white_48dp"
+            android:scaleType="centerInside"
+            android:background="@drawable/selector_switch_off"
+            android:layout_margin="@dimen/service_fragment_btn_margin"
+            android:padding="@dimen/service_fragment_btn_padding"/>
+
+        <ImageButton
+            android:id="@+id/btn_power"
+            android:layout_width="@dimen/service_fragment_button_size"
+            android:layout_height="@dimen/service_fragment_button_size"
+            android:src="@drawable/ic_power_settings_new_white_48dp"
+            android:scaleType="centerInside"
+            android:background="@drawable/selector_switch_on"
+            android:layout_margin="@dimen/service_fragment_btn_margin"
+            android:padding="@dimen/service_fragment_btn_padding"/>
+
+    </LinearLayout>
+
+    <TextureView
+        android:id="@+id/video"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:visibility="gone">
+
+    </TextureView>
+
+    <ListView
+        android:id="@+id/log_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </ListView>
+
+</LinearLayout>
