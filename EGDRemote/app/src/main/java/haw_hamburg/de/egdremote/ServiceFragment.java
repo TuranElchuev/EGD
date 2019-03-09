@@ -1,11 +1,9 @@
 package haw_hamburg.de.egdremote;
 
-import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.SurfaceTexture;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,13 +11,16 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.MediaController;
+import android.widget.Switch;
 import android.widget.Toast;
-import android.widget.VideoView;
 
-public class ServiceFragment extends Fragment implements View.OnClickListener, BluetoothCommunicationHandler.BTCallbacks {
+public class ServiceFragment extends Fragment implements View.OnClickListener,
+        CompoundButton.OnCheckedChangeListener,
+        BluetoothCommunicationHandler.BTCallbacks {
 
     private static ServiceFragment instance;
     public static ServiceFragment getInstance(){
@@ -36,6 +37,8 @@ public class ServiceFragment extends Fragment implements View.OnClickListener, B
     private VideoStreamDecoder videoStreamDecoder;
     private Surface surface;
 
+    private Dialog settingsActionsDialog = null;
+
     private View v;
 
     @Override
@@ -44,6 +47,7 @@ public class ServiceFragment extends Fragment implements View.OnClickListener, B
         setRetainInstance(true);
         bluetoothHelper = new BluetoothHelper(getActivity());
         BluetoothCommunicationHandler.getInstance().registerListener(this);
+        Settings.init(getActivity());
     }
 
     @Override
@@ -61,13 +65,7 @@ public class ServiceFragment extends Fragment implements View.OnClickListener, B
     }
 
     private void setupGUI(){
-        v.findViewById(R.id.btn_connect).setOnClickListener(this);
-        v.findViewById(R.id.btn_autoscroll).setOnClickListener(this);
-        v.findViewById(R.id.btn_clear_log).setOnClickListener(this);
-        v.findViewById(R.id.btn_share).setOnClickListener(this);
-        v.findViewById(R.id.btn_video).setOnClickListener(this);
-        v.findViewById(R.id.btn_power).setOnClickListener(this);
-        v.findViewById(R.id.btn_log).setOnClickListener(this);
+        v.findViewById(R.id.btn_settings).setOnClickListener(this);
 
         logAdapter = new FrameLogAdapter((ListView)(v.findViewById(R.id.log_list)), getActivity(), null);
 
@@ -95,63 +93,113 @@ public class ServiceFragment extends Fragment implements View.OnClickListener, B
 
     @Override
     public void onClick(View v) {
+
+        if(settingsActionsDialog != null && settingsActionsDialog.isShowing())
+            settingsActionsDialog.dismiss();
+
         switch (v.getId()){
-            case R.id.btn_connect:
+            case R.id.btn_bt_connect:
                 bluetoothHelper.pickBTDeviceAndConnect();
                 break;
-            case R.id.btn_autoscroll:
-                if(logAdapter.toggleAutoScroll()){
-                    ((ImageButton)v.findViewById(R.id.btn_autoscroll)).setBackgroundResource(R.drawable.selector_switch_on);
-                }else {
-                    ((ImageButton)v.findViewById(R.id.btn_autoscroll)).setBackgroundResource(R.drawable.selector_switch_off);
-                }
+            case R.id.btn_bt_disconnect:
+                BluetoothCommunicationHandler.getInstance().disconnect();
+                break;
+            case R.id.btn_reboot:
+                DataTransmitter.command = DataTransmitter.cmd_reboot;
+                break;
+            case R.id.btn_halt:
+                DataTransmitter.command = DataTransmitter.cmd_halt;
                 break;
             case R.id.btn_clear_log:
                 logAdapter.clear();
                 break;
-            case R.id.btn_share:
+            case R.id.btn_share_log:
                 shareLog();
                 break;
-            case R.id.btn_video:
-                toggleVideo();
-                break;
-            case R.id.btn_log:
-                toggleLog();
-                break;
-            case R.id.btn_power:
-                powerBtnPressed();
-                break;
-            default:
+            case R.id.btn_settings:
+                showSettingsAndActionsDialog();
                 break;
         }
     }
 
-    private void toggleLog(){
-        if(v.findViewById(R.id.log_list).getVisibility() == View.GONE){
+    private void showSettingsAndActionsDialog(){
+        settingsActionsDialog = new Dialog(getActivity());
+        settingsActionsDialog.setContentView(R.layout.dialog_settings_actions);
+        settingsActionsDialog.findViewById(R.id.btn_bt_connect).setOnClickListener(this);
+        settingsActionsDialog.findViewById(R.id.btn_bt_disconnect).setOnClickListener(this);
+        settingsActionsDialog.findViewById(R.id.btn_reboot).setOnClickListener(this);
+        settingsActionsDialog.findViewById(R.id.btn_halt).setOnClickListener(this);
+        settingsActionsDialog.findViewById(R.id.btn_clear_log).setOnClickListener(this);
+        settingsActionsDialog.findViewById(R.id.btn_share_log).setOnClickListener(this);
+
+        ((Switch)settingsActionsDialog.findViewById(R.id.sw_autoscroll)).setChecked(logAdapter.isAutoscroll());
+        ((Switch)settingsActionsDialog.findViewById(R.id.sw_autoscroll)).setOnCheckedChangeListener(this);
+
+        ((Switch)settingsActionsDialog.findViewById(R.id.sw_enable_log)).setChecked(v.findViewById(R.id.log_list).getVisibility() == View.VISIBLE);
+        ((Switch)settingsActionsDialog.findViewById(R.id.sw_enable_log)).setOnCheckedChangeListener(this);
+
+        ((Switch)settingsActionsDialog.findViewById(R.id.sw_enable_video)).setChecked(v.findViewById(R.id.video).getVisibility() == View.VISIBLE);
+        ((Switch)settingsActionsDialog.findViewById(R.id.sw_enable_video)).setOnCheckedChangeListener(this);
+
+        ((EditText)settingsActionsDialog.findViewById(R.id.et_ip)).setText(Settings.RPi_IP);
+        ((EditText)settingsActionsDialog.findViewById(R.id.et_port)).setText(String.valueOf(Settings.RPi_video_port));
+        ((EditText)settingsActionsDialog.findViewById(R.id.et_video_w)).setText(String.valueOf(Settings.RPi_video_W));
+        ((EditText)settingsActionsDialog.findViewById(R.id.et_video_h)).setText(String.valueOf(Settings.RPi_video_H));
+        ((EditText)settingsActionsDialog.findViewById(R.id.et_video_fps)).setText(String.valueOf(Settings.RPi_video_fps));
+
+        settingsActionsDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                Settings.RPi_IP = ((EditText)settingsActionsDialog.findViewById(R.id.et_ip)).getText().toString();
+                Settings.RPi_video_port = Integer.valueOf(((EditText)settingsActionsDialog.findViewById(R.id.et_port)).getText().toString().trim());
+                Settings.RPi_video_W = Integer.valueOf(((EditText)settingsActionsDialog.findViewById(R.id.et_video_w)).getText().toString());
+                Settings.RPi_video_H = Integer.valueOf(((EditText)settingsActionsDialog.findViewById(R.id.et_video_h)).getText().toString());
+                Settings.RPi_video_fps = Integer.valueOf(((EditText)settingsActionsDialog.findViewById(R.id.et_video_fps)).getText().toString());
+
+                Settings.save(getActivity());
+            }
+        });
+
+        settingsActionsDialog.show();
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        switch (buttonView.getId()){
+            case R.id.sw_autoscroll:
+                logAdapter.setAutoscroll(isChecked);
+                break;
+            case R.id.sw_enable_log:
+                setEnableLog(isChecked);
+                break;
+            case R.id.sw_enable_video:
+                setEnableVideo(isChecked);
+                break;
+        }
+    }
+
+    private void setEnableLog(boolean enable){
+        if(enable && v.findViewById(R.id.log_list).getVisibility() == View.GONE){
             v.findViewById(R.id.log_list).setVisibility(View.VISIBLE);
-            ((ImageButton)v.findViewById(R.id.btn_log)).setBackgroundResource(R.drawable.selector_switch_on);
         }
-        else {
+        else if(!enable && v.findViewById(R.id.log_list).getVisibility() == View.VISIBLE){
             v.findViewById(R.id.log_list).setVisibility(View.GONE);
-            ((ImageButton)v.findViewById(R.id.btn_log)).setBackgroundResource(R.drawable.selector_switch_off);
         }
     }
 
-    private void toggleVideo(){
+    private void setEnableVideo(boolean enable){
 
-        if(v.findViewById(R.id.video).getVisibility() == View.GONE){
+        if(enable && v.findViewById(R.id.video).getVisibility() == View.GONE){
 
             DataTransmitter.command = DataTransmitter.cmd_video_on;
 
             v.findViewById(R.id.video).setVisibility(View.VISIBLE);
-            ((ImageButton)v.findViewById(R.id.btn_video)).setImageResource(R.drawable.ic_videocam_white_48dp);
-            ((ImageButton)v.findViewById(R.id.btn_video)).setBackgroundResource(R.drawable.selector_switch_on);
 
             videoStreamDecoder = new VideoStreamDecoder();
             videoStreamDecoder.setSurface(surface);
             videoStreamDecoder.start();
 
-        }else{
+        }else if(!enable && v.findViewById(R.id.video).getVisibility() == View.VISIBLE){
 
             DataTransmitter.command = DataTransmitter.cmd_video_off;
 
@@ -164,44 +212,7 @@ public class ServiceFragment extends Fragment implements View.OnClickListener, B
             }
 
             v.findViewById(R.id.video).setVisibility(View.GONE);
-            ((ImageButton)v.findViewById(R.id.btn_video)).setImageResource(R.drawable.ic_videocam_off_white_48dp);
-            ((ImageButton)v.findViewById(R.id.btn_video)).setBackgroundResource(R.drawable.selector_switch_off);
         }
-    }
-
-    private void powerBtnPressed(){
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Choose an action");
-
-        String[] actions = {"HALT", "REBOOT", "CLOSE APP"};
-        builder.setItems(actions, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-                    case 0:
-                        DataTransmitter.command = DataTransmitter.cmd_halt;
-                        break;
-                    case 1:
-                        DataTransmitter.command = DataTransmitter.cmd_reboot;
-                        break;
-                    case 2:
-                        getActivity().finishAffinity();
-                        System.exit(0);
-                        break;
-                }
-            }
-        });
-        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                if(getActivity() instanceof MainActivity){
-                    ((MainActivity) getActivity()).hideSystemUI();
-                }
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
     }
 
     @Override
@@ -220,24 +231,22 @@ public class ServiceFragment extends Fragment implements View.OnClickListener, B
     @Override
     public void onConnected() {
         toast("CONNETCED");
-        ((ImageButton)v.findViewById(R.id.btn_connect)).setImageResource(R.drawable.ic_bluetooth_connected_white_48dp);
-        ((ImageButton)v.findViewById(R.id.btn_connect)).setBackgroundResource(R.drawable.selector_switch_on);
-        bluetoothHelper.hideWaitingDialog();
+        v.findViewById(R.id.indicator_bt_connected).setVisibility(View.VISIBLE);
+        WaitingDialog.hide();
         DataTransmitter.getInstance().start();
     }
 
     @Override
     public void onDisconnected() {
         toast("DISCONNETCED");
-        ((ImageButton)v.findViewById(R.id.btn_connect)).setImageResource(R.drawable.ic_bluetooth_white_48dp);
-        ((ImageButton)v.findViewById(R.id.btn_connect)).setBackgroundResource(R.drawable.selector_switch_off);
+        v.findViewById(R.id.indicator_bt_connected).setVisibility(View.GONE);
         DataTransmitter.getInstance().stop();
     }
 
     @Override
     public void onConnectionFailed(String message) {
         toast("FAILED TO CONNECT: " + message);
-        bluetoothHelper.hideWaitingDialog();
+        WaitingDialog.hide();
     }
 
     private void toast(String text){

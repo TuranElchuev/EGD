@@ -54,8 +54,11 @@ public class FrameLogAdapter extends ArrayAdapter {
         }
     }
 
-    public boolean toggleAutoScroll(){
-        autoScroll = !autoScroll;
+    public void setAutoscroll(boolean autoScroll) {
+        this.autoScroll = autoScroll;
+    }
+
+    public boolean isAutoscroll() {
         return autoScroll;
     }
 
