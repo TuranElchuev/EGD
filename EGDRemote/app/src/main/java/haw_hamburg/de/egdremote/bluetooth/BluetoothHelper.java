@@ -1,11 +1,9 @@
-package haw_hamburg.de.egdremote;
+package haw_hamburg.de.egdremote.bluetooth;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,16 +14,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import haw_hamburg.de.egdremote.R;
+import haw_hamburg.de.egdremote.utils.WaitingDialog;
+import haw_hamburg.de.egdremote.activities.ServiceFragment;
+
 public class BluetoothHelper {
 
     private Activity activity;
-    private Dialog waitingDialog;
 
     public BluetoothHelper(Activity activity){
         this.activity = activity;
@@ -74,7 +74,7 @@ public class BluetoothHelper {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 dialog.cancel();
-                showWaitingDialog();
+                WaitingDialog.show(activity);
                 BluetoothCommunicationHandler.getInstance().connect(pairedDevices.get(position));
             }
         });
@@ -87,46 +87,10 @@ public class BluetoothHelper {
             }
         });
 
-        dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                if(activity instanceof MainActivity){
-                    ((MainActivity) activity).hideSystemUI();
-                }
-            }
-        });
-
         dialog.show();
     }
 
     private void addNewBTDevice(){
         activity.startActivityForResult(new Intent(android.provider.Settings.ACTION_BLUETOOTH_SETTINGS), ServiceFragment.REQUEST_CODE_BTSETTINGS);
-    }
-
-    public void showWaitingDialog(){
-        hideWaitingDialog();
-        waitingDialog = new Dialog(activity);
-        waitingDialog.setCanceledOnTouchOutside(false);
-        waitingDialog.setContentView(new ProgressBar(activity));
-
-        waitingDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                if(activity instanceof MainActivity){
-                    ((MainActivity) activity).hideSystemUI();
-                }
-            }
-        });
-
-        waitingDialog.show();
-    }
-
-    public void hideWaitingDialog(){
-        if(waitingDialog != null && waitingDialog.isShowing()){
-            try{
-                waitingDialog.cancel();
-            }catch(Exception e){}
-            waitingDialog = null;
-        }
     }
 }

@@ -1,4 +1,4 @@
-package haw_hamburg.de.egdremote;
+package haw_hamburg.de.egdremote.utils;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,11 +8,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
+import haw_hamburg.de.egdremote.R;
 
 public class FrameLogAdapter extends ArrayAdapter {
 
@@ -54,8 +54,11 @@ public class FrameLogAdapter extends ArrayAdapter {
         }
     }
 
-    public boolean toggleAutoScroll(){
-        autoScroll = !autoScroll;
+    public void setAutoscroll(boolean autoScroll) {
+        this.autoScroll = autoScroll;
+    }
+
+    public boolean isAutoscroll() {
         return autoScroll;
     }
 

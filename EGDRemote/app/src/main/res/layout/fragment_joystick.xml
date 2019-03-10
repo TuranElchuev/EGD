@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JoystickFragment"
-    android:id="@+id/joystick_panel"
-    android:background="@color/joystick_background">
+    tools:context=".activities.JoystickFragment"
+    android:id="@+id/joystick_panel">
 
     <ImageView
         android:layout_width="@dimen/joystick_arrow_size"

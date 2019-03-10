@@ -1,14 +1,13 @@
-package haw_hamburg.de.egdremote;
+package haw_hamburg.de.egdremote.activities;
 
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.SeekBar;
-import android.widget.Switch;
+
+import haw_hamburg.de.egdremote.bluetooth.DataTransmitter;
+import haw_hamburg.de.egdremote.R;
 
 public class ControlsFragment extends Fragment implements View.OnClickListener{
 
