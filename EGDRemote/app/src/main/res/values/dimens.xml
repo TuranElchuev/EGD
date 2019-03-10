@@ -3,7 +3,7 @@
 
     <dimen name="service_fragment_button_size">40dp</dimen>
     <dimen name="service_fragment_indicator_size">20dp</dimen>
-    <dimen name="service_fragment_btn_margin">2dp</dimen>
+    <dimen name="service_fragment_btn_margin">5dp</dimen>
     <dimen name="service_fragment_btn_padding">7dp</dimen>
     <dimen name="service_fragment_indicator_padding">3dp</dimen>
 

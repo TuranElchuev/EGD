@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".activities.ControlsFragment"
     android:orientation="vertical"
-    android:background="@color/controls_fragment_background"
     android:gravity="center"
     android:padding="@dimen/controls_fragment_padding">
 

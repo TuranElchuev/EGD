@@ -10,7 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical|right">
+        
+        <ImageView
+            android:id="@+id/indicator_bt_connected"
+            android:layout_width="@dimen/service_fragment_indicator_size"
+            android:layout_height="@dimen/service_fragment_indicator_size"
+            android:src="@drawable/ic_bluetooth_connected_white_48dp"
+            android:background="@drawable/shape_selector_switch_on_selected"
+            android:padding="@dimen/service_fragment_indicator_padding"
+            android:layout_margin="@dimen/service_fragment_btn_margin"
+            android:visibility="gone"/>
 
         <ImageButton
             android:id="@+id/btn_settings"
@@ -22,37 +32,21 @@
             android:layout_margin="@dimen/service_fragment_btn_margin"
             android:padding="@dimen/service_fragment_btn_padding"/>
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        
-        <ImageView
-            android:id="@+id/indicator_bt_connected"
-            android:layout_width="@dimen/service_fragment_indicator_size"
-            android:layout_height="@dimen/service_fragment_indicator_size"
-            android:src="@drawable/ic_bluetooth_connected_white_48dp"
-            android:background="@drawable/shape_selector_switch_on_selected"
-            android:padding="@dimen/service_fragment_indicator_padding"
-            android:visibility="gone"/>
-
     </LinearLayout>
 
-    <TextureView
-        android:id="@+id/video"
+    <View
+        android:id="@+id/empty_space"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
-        android:visibility="gone">
-
-    </TextureView>
-
+        android:layout_weight="5"
+        android:visibility="gone"/>
+    
     <ListView
         android:id="@+id/log_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-
+        android:layout_weight="2"
+        android:background="@color/semi_transp_background">
     </ListView>
 
 </LinearLayout>

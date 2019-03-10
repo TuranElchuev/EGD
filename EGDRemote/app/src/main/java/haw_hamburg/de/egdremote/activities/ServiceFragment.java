@@ -31,7 +31,8 @@ import haw_hamburg.de.egdremote.utils.WaitingDialog;
 public class ServiceFragment extends Fragment implements View.OnClickListener,
         CompoundButton.OnCheckedChangeListener,
         BluetoothCommunicationHandler.BTCallbacks,
-        VideoStreamDecoder.VideoStreamDecoderCallbacks {
+        VideoStreamDecoder.VideoStreamDecoderCallbacks,
+        TextureView.SurfaceTextureListener{
 
     private static ServiceFragment instance;
     public static ServiceFragment getInstance(){
@@ -81,27 +82,6 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
         v.findViewById(R.id.btn_settings).setOnClickListener(this);
 
         logAdapter = new FrameLogAdapter((ListView)(v.findViewById(R.id.log_list)), getActivity(), null);
-
-        TextureView video = (TextureView)v.findViewById(R.id.video);
-        video.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() {
-            @Override
-            public void onSurfaceTextureAvailable(SurfaceTexture surface_, int width, int height) {
-                surface = new Surface(surface_);
-                if(videoStreamDecoder != null)
-                    videoStreamDecoder.setSurface(surface);
-            }
-
-            @Override
-            public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {}
-
-            @Override
-            public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
-                return false;
-            }
-
-            @Override
-            public void onSurfaceTextureUpdated(SurfaceTexture surface) {}
-        });
     }
 
     private void showSettingsAndActionsDialog(){
@@ -120,7 +100,7 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
         ((Switch)settingsActionsDialog.findViewById(R.id.sw_enable_log)).setChecked(v.findViewById(R.id.log_list).getVisibility() == View.VISIBLE);
         ((Switch)settingsActionsDialog.findViewById(R.id.sw_enable_log)).setOnCheckedChangeListener(this);
 
-        ((Switch)settingsActionsDialog.findViewById(R.id.sw_enable_video)).setChecked(v.findViewById(R.id.video).getVisibility() == View.VISIBLE);
+        ((Switch)settingsActionsDialog.findViewById(R.id.sw_enable_video)).setChecked(MainActivity.video.getVisibility() == View.VISIBLE);
         ((Switch)settingsActionsDialog.findViewById(R.id.sw_enable_video)).setOnCheckedChangeListener(this);
 
         ((EditText)settingsActionsDialog.findViewById(R.id.et_ip)).setText(Settings.RPi_IP);
@@ -216,7 +196,8 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
 
             DataTransmitter.command = DataTransmitter.cmd_video_on;
 
-            v.findViewById(R.id.video).setVisibility(View.VISIBLE);
+            MainActivity.video.setVisibility(View.VISIBLE);
+            v.findViewById(R.id.empty_space).setVisibility(View.VISIBLE);
 
             videoStreamDecoder = new VideoStreamDecoder(this);
             videoStreamDecoder.setSurface(surface);
@@ -224,7 +205,8 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
 
         }else{
             DataTransmitter.command = DataTransmitter.cmd_video_off;
-            v.findViewById(R.id.video).setVisibility(View.GONE);
+            MainActivity.video.setVisibility(View.GONE);
+            v.findViewById(R.id.empty_space).setVisibility(View.GONE);
         }
     }
 
@@ -232,7 +214,6 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
         try {
             Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
         }catch (Exception e){}
-
     }
 
     private void shareLog(){
@@ -258,7 +239,7 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
 
     @Override
     public void onBluetoothConnected() {
-        toast("CONNETCED");
+        toast("Bluetooth connected");
         v.findViewById(R.id.indicator_bt_connected).setVisibility(View.VISIBLE);
         WaitingDialog.hide();
         DataTransmitter.getInstance().start();
@@ -266,40 +247,58 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
 
     @Override
     public void onBluetoothDisconnected() {
-        toast("DISCONNETCED");
+        toast("Bluetooth disconnected");
         v.findViewById(R.id.indicator_bt_connected).setVisibility(View.GONE);
         DataTransmitter.getInstance().stop();
     }
 
     @Override
     public void onBluetoothConnectionFailed(String message) {
-        toast("FAILED TO CONNECT: " + message);
+        toast("Bluetooth failed to connect: " + message);
         WaitingDialog.hide();
     }
 
     @Override
     public void onVideoConnecting() {
         WaitingDialog.show(getActivity());
-        toast("Attempting to connect to video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
+        toast("Attempting to connect to the video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
     }
 
     @Override
     public void onVideoConnected() {
         WaitingDialog.hide();
-        toast("Connected to video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
+        toast("Connected to the video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
     }
 
     @Override
     public void onVideoFailedToConnect() {
         setEnableVideo(false);
         WaitingDialog.hide();
-        toast("Failed to connect to video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
+        toast("Failed to connect to the video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
     }
 
     @Override
     public void onVideoDisconnected() {
         setEnableVideo(false);
         WaitingDialog.hide();
-        toast("Disconnected from video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
+        toast("Disconnected from the video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
     }
+
+    @Override
+    public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+        this.surface = new Surface(surface);
+        if(videoStreamDecoder != null)
+            videoStreamDecoder.setSurface(this.surface);
+    }
+
+    @Override
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {}
+
+    @Override
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
+        return false;
+    }
+
+    @Override
+    public void onSurfaceTextureUpdated(SurfaceTexture surface) {}
 }
