@@ -1,4 +1,4 @@
-package haw_hamburg.de.egdremote;
+package haw_hamburg.de.egdremote.video;
 
 import android.media.MediaCodec;
 import android.media.MediaFormat;
@@ -9,6 +9,8 @@ import android.view.Surface;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
+
+import haw_hamburg.de.egdremote.utils.Settings;
 
 public class VideoStreamDecoder extends Thread {
 
@@ -70,7 +72,7 @@ public class VideoStreamDecoder extends Thread {
         this.listener = listener;
     }
 
-    void setSurface(Surface surface){
+    public void setSurface(Surface surface){
 
         this.surface = surface;
 

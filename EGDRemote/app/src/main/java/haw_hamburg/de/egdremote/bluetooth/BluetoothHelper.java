@@ -1,11 +1,9 @@
-package haw_hamburg.de.egdremote;
+package haw_hamburg.de.egdremote.bluetooth;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,11 +14,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import haw_hamburg.de.egdremote.R;
+import haw_hamburg.de.egdremote.utils.WaitingDialog;
+import haw_hamburg.de.egdremote.activities.ServiceFragment;
 
 public class BluetoothHelper {
 

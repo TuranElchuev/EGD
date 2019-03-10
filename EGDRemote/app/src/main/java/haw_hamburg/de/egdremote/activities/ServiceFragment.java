@@ -1,4 +1,4 @@
-package haw_hamburg.de.egdremote;
+package haw_hamburg.de.egdremote.activities;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -13,10 +13,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import haw_hamburg.de.egdremote.bluetooth.BluetoothCommunicationHandler;
+import haw_hamburg.de.egdremote.bluetooth.BluetoothHelper;
+import haw_hamburg.de.egdremote.bluetooth.DataTransmitter;
+import haw_hamburg.de.egdremote.utils.FrameLogAdapter;
+import haw_hamburg.de.egdremote.utils.IRxFrame;
+import haw_hamburg.de.egdremote.R;
+import haw_hamburg.de.egdremote.utils.Settings;
+import haw_hamburg.de.egdremote.video.TcpIpReader;
+import haw_hamburg.de.egdremote.video.VideoStreamDecoder;
+import haw_hamburg.de.egdremote.utils.WaitingDialog;
 
 public class ServiceFragment extends Fragment implements View.OnClickListener,
         CompoundButton.OnCheckedChangeListener,

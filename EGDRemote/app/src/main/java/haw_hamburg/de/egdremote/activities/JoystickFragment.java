@@ -1,13 +1,14 @@
-package haw_hamburg.de.egdremote;
+package haw_hamburg.de.egdremote.activities;
 
 import android.os.Bundle;
 import android.app.Fragment;
-import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+
+import haw_hamburg.de.egdremote.bluetooth.DataTransmitter;
+import haw_hamburg.de.egdremote.R;
 
 public class JoystickFragment extends Fragment {
 

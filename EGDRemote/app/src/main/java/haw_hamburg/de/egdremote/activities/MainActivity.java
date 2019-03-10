@@ -1,11 +1,11 @@
-package haw_hamburg.de.egdremote;
+package haw_hamburg.de.egdremote.activities;
 
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.view.WindowManager;
+
+import haw_hamburg.de.egdremote.R;
 
 public class MainActivity extends AppCompatActivity {
 

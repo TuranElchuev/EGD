@@ -1,4 +1,4 @@
-package haw_hamburg.de.egdremote;
+package haw_hamburg.de.egdremote.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

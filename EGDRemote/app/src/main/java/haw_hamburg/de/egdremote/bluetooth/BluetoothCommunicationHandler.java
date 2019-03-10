@@ -1,4 +1,4 @@
-package haw_hamburg.de.egdremote;
+package haw_hamburg.de.egdremote.bluetooth;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -11,6 +11,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.UUID;
+
+import haw_hamburg.de.egdremote.utils.IRxFrame;
+import haw_hamburg.de.egdremote.utils.RxFrameString;
 
 
 public class BluetoothCommunicationHandler {
