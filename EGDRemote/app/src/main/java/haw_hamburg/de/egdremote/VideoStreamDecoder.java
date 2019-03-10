@@ -2,23 +2,60 @@ package haw_hamburg.de.egdremote;
 
 import android.media.MediaCodec;
 import android.media.MediaFormat;
-import android.util.Log;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Surface;
-import android.view.View;
 
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class VideoStreamDecoder extends Thread {
 
-    // local constants
+    private final int HANDLER_CONNECTING = 0;
+    private final int HANDLER_CONNECTED = 1;
+    private final int HANDLER_DISCONNECTED = 2;
+    private final int HANDLER_FAILED_TO_CONNECT = 3;
+
+    public interface VideoStreamDecoderCallbacks{
+        void onVideoConnecting();
+        void onVideoConnected();
+        void onVideoDisconnected();
+        void onVideoFailedToConnect();
+    }
+
+    VideoStreamDecoderCallbacks listener;
+
+    private Handler messageHandler = new Handler(){
+
+        public void handleMessage(Message msg) {
+
+            switch (msg.what) {
+
+                case HANDLER_CONNECTING:
+                    if(listener != null)
+                        listener.onVideoConnecting();
+                    break;
+                case HANDLER_CONNECTED:
+                    if(listener != null)
+                        listener.onVideoConnected();
+                    break;
+                case HANDLER_DISCONNECTED:
+                    if(listener != null)
+                        listener.onVideoDisconnected();
+                    break;
+                case HANDLER_FAILED_TO_CONNECT:
+                    if(listener != null)
+                        listener.onVideoFailedToConnect();
+                    break;
+            }
+        }
+    };
+
     private final static int BUFFER_SIZE = 16384;
     private final static int NAL_SIZE_INC = 4096;
     private final static int MAX_READ_ERRORS = 300;
 
-    // instance variables
     private MediaCodec decoder = null;
     private MediaFormat format;
     private boolean decoding = false;
@@ -29,75 +66,57 @@ public class VideoStreamDecoder extends Thread {
     private long presentationTimeInc = 1000000 / Settings.RPi_video_fps;
     private TcpIpReader reader = null;
 
-    //******************************************************************************
-    // setSurface
-    //******************************************************************************
-    void setSurface(Surface surface)
-    {
+    public VideoStreamDecoder(VideoStreamDecoderCallbacks listener){
+        this.listener = listener;
+    }
+
+    void setSurface(Surface surface){
+
         this.surface = surface;
-        if (decoder != null)
-        {
-            if (surface != null)
-            {
+
+        if (decoder != null){
+
+            if (surface != null){
+
                 boolean newDecoding = decoding;
+
                 if (decoding)
-                {
                     setDecodingState(false);
-                }
-                if (format != null)
-                {
-                    try
-                    {
+
+                if (format != null){
+                    try{
                         decoder.configure(format, surface, null, 0);
-                    }
-                    catch (Exception ex) {}
+                    }catch (Exception ex) {}
+
                     if (!newDecoding)
-                    {
                         newDecoding = true;
-                    }
                 }
-                if (newDecoding)
-                {
+
+                if (newDecoding){
                     setDecodingState(newDecoding);
                 }
-            }
-            else if (decoding)
-            {
+
+            }else if (decoding){
                 setDecodingState(false);
             }
         }
     }
 
-    //******************************************************************************
-    // setDecodingState
-    //******************************************************************************
-    private synchronized void setDecodingState(boolean newDecoding)
-    {
-        try
-        {
-            if (newDecoding != decoding && decoder != null)
-            {
+    private synchronized void setDecodingState(boolean newDecoding){
+        try{
+            if (newDecoding != decoding && decoder != null){
                 if (newDecoding)
-                {
                     decoder.start();
-                }
                 else
-                {
                     decoder.stop();
-                }
                 decoding = newDecoding;
             }
         } catch (Exception ex) {}
     }
 
-    //******************************************************************************
-    // run
-    //******************************************************************************
     @Override
-    public void run()
-    {
-
-        message("Attempting to connect to video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
+    public void run(){
+        messageHandler.obtainMessage(HANDLER_CONNECTING, 0, 0, null).sendToTarget();
 
         try {
             TimeUnit.SECONDS.sleep(3);
@@ -108,55 +127,40 @@ public class VideoStreamDecoder extends Thread {
         int numZeroes = 0;
         int numReadErrors = 0;
 
-        try
-        {
-            // create the decoder
+        try{
             decoder = MediaCodec.createDecoderByType("video/avc");
 
-            // create the reader
             buffer = new byte[BUFFER_SIZE];
             reader = new TcpIpReader(Settings.RPi_IP, Settings.RPi_video_port);
+
             if (!reader.isConnected())
-            {
                 throw new Exception();
-            }
 
+            messageHandler.obtainMessage(HANDLER_CONNECTED, 0, 0, null).sendToTarget();
 
-            // read until we're interrupted
-            while (!isInterrupted())
-            {
-                // read from the stream
+            while (!isInterrupted()) {
                 int len = reader.read(buffer);
                 if (isInterrupted()) break;
 
-                // process the input buffer
-                if (len > 0)
-                {
+                if (len > 0){
+
                     numReadErrors = 0;
-                    for (int i = 0; i < len && !isInterrupted(); i++)
-                    {
-                        // add the byte to the NAL
+
+                    for (int i = 0; i < len && !isInterrupted(); i++){
+
                         if (nalLen == nal.length)
-                        {
                             nal = Arrays.copyOf(nal, nal.length + NAL_SIZE_INC);
-                        }
+
                         nal[nalLen++] = buffer[i];
 
-                        // look for a header
-                        if (buffer[i] == 0)
-                        {
+                        if (buffer[i] == 0){
                             numZeroes++;
-                        }
-                        else
-                        {
-                            if (buffer[i] == 1 && numZeroes == 3)
-                            {
-                                if (nalLen > 4)
-                                {
+                        }else{
+                            if (buffer[i] == 1 && numZeroes == 3){
+                                if (nalLen > 4){
                                     int nalType = processNal(nal, nalLen - 4);
                                     if (isInterrupted()) break;
-                                    if (nalType == -1)
-                                    {
+                                    if (nalType == -1){
                                         nal[0] = nal[1] = nal[2] = 0;
                                         nal[3] = 1;
                                     }
@@ -166,86 +170,68 @@ public class VideoStreamDecoder extends Thread {
                             numZeroes = 0;
                         }
                     }
-                }
-                else
-                {
+                }else{
                     numReadErrors++;
-                    if (numReadErrors >= MAX_READ_ERRORS)
-                    {
-                        message("Disconnected from video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
+                    if (numReadErrors >= MAX_READ_ERRORS){
+                        messageHandler.obtainMessage(HANDLER_DISCONNECTED, 0, 0, null).sendToTarget();
                         break;
                     }
                 }
 
-                // send an output buffer to the surface
-                if (format != null && decoding)
-                {
+                if (format != null && decoding){
+
                     if (isInterrupted()) break;
+
                     MediaCodec.BufferInfo info = new MediaCodec.BufferInfo();
+
                     int index;
-                    do
-                    {
+                    do{
+
                         index = decoder.dequeueOutputBuffer(info, 0);
+
                         if (isInterrupted()) break;
+
                         if (index >= 0)
-                        {
                             decoder.releaseOutputBuffer(index, true);
-                        }
+
                     } while (index >= 0);
                 }
             }
-        }
-        catch (Exception ex)
-        {
+        }catch (Exception ex){
+
             if (reader == null || !reader.isConnected())
-            {
-                message("Failed to connect to video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
-            }
+                messageHandler.obtainMessage(HANDLER_FAILED_TO_CONNECT, 0, 0, null).sendToTarget();
             else
-            {
-                message("Disconnected from video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
-            }
+                messageHandler.obtainMessage(HANDLER_DISCONNECTED, 0, 0, null).sendToTarget();
             ex.printStackTrace();
         }
 
-        // close the reader
-        if (reader != null)
-        {
-            try
-            {
+        if (reader != null){
+            try{
                 reader.close();
-            }
-            catch (Exception ex) {}
+            }catch (Exception ex) {}
             reader = null;
         }
 
-        // stop the decoder
-        if (decoder != null)
-        {
-            try
-            {
+        if (decoder != null){
+            try{
                 setDecodingState(false);
                 decoder.release();
-            }
-            catch (Exception ex) {}
+            }catch (Exception ex) {}
             decoder = null;
         }
 
-        DataTransmitter.command = DataTransmitter.cmd_video_off;
+        messageHandler.obtainMessage(HANDLER_DISCONNECTED, 0, 0, null).sendToTarget();
     }
 
-    //******************************************************************************
-    // processNal
-    //******************************************************************************
-    private int processNal(byte[] nal, int nalLen)
-    {
+    private int processNal(byte[] nal, int nalLen){
+
         // get the NAL type
         int nalType = (nalLen > 4 && nal[0] == 0 && nal[1] == 0 && nal[2] == 0 && nal[3] == 1) ? (nal[4] & 0x1F) : -1;
-        //Log.info(String.format("NAL: type = %d, len = %d", nalType, nalLen));
 
         // process the first SPS record we encounter
-        if (nalType == 7 && !decoding)
-        {
+        if (nalType == 7 && !decoding){
+
             format = MediaFormat.createVideoFormat("video/avc", Settings.RPi_video_W, Settings.RPi_video_H);
             presentationTimeInc = 1000000 / Settings.RPi_video_fps;
             presentationTime = System.nanoTime() / 1000;
@@ -255,11 +241,11 @@ public class VideoStreamDecoder extends Thread {
         }
 
         // queue the frame
-        if (nalType > 0 && decoding)
-        {
+        if (nalType > 0 && decoding){
+
             int index = decoder.dequeueInputBuffer(0);
-            if (index >= 0)
-            {
+
+            if (index >= 0){
                 ByteBuffer inputBuffer = inputBuffers[index];
                 inputBuffer.put(nal, 0, nalLen);
                 decoder.queueInputBuffer(index, 0, nalLen, presentationTime, 0);
@@ -267,9 +253,5 @@ public class VideoStreamDecoder extends Thread {
             }
         }
         return nalType;
-    }
-
-    private void message(final String message){
-        // TODO
     }
 }

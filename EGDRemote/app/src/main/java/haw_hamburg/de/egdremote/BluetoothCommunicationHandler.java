@@ -27,10 +27,10 @@ public class BluetoothCommunicationHandler {
     private final int HANDLER_FAILED_TO_CONNECT = 3;
 
     public interface BTCallbacks{
-        void frameReceived(IRxFrame frame);
-        void onConnected();
-        void onDisconnected();
-        void onConnectionFailed(String message);
+        void onBluetoothFrameReceived(IRxFrame frame);
+        void onBluetoothConnected();
+        void onBluetoothDisconnected();
+        void onBluetoothConnectionFailed(String message);
     }
 
     private static BluetoothCommunicationHandler instance;
@@ -53,7 +53,7 @@ public class BluetoothCommunicationHandler {
                 case HANDLER_FRAME_RECEIVED:
                     for(BTCallbacks listener: listeners){
                         if(listener != null){
-                            listener.frameReceived((IRxFrame)msg.obj);
+                            listener.onBluetoothFrameReceived((IRxFrame)msg.obj);
                         }
                     }
                     break;
@@ -130,7 +130,7 @@ public class BluetoothCommunicationHandler {
     private void onConnected(){
         for(BTCallbacks listener: listeners) {
             if (listener != null) {
-                listener.onConnected();
+                listener.onBluetoothConnected();
             }
         }
     }
@@ -138,7 +138,7 @@ public class BluetoothCommunicationHandler {
     private void onDisconnected(){
         for(BTCallbacks listener: listeners) {
             if (listener != null) {
-                listener.onDisconnected();
+                listener.onBluetoothDisconnected();
             }
         }
         stopThreads();
@@ -147,7 +147,7 @@ public class BluetoothCommunicationHandler {
     private void onConnectionFailed(String message){
         for(BTCallbacks listener: listeners) {
             if (listener != null) {
-                listener.onConnectionFailed(message);
+                listener.onBluetoothConnectionFailed(message);
             }
         }
         stopThreads();

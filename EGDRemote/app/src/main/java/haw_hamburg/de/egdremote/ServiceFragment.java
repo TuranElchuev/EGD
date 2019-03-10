@@ -20,7 +20,8 @@ import android.widget.Toast;
 
 public class ServiceFragment extends Fragment implements View.OnClickListener,
         CompoundButton.OnCheckedChangeListener,
-        BluetoothCommunicationHandler.BTCallbacks {
+        BluetoothCommunicationHandler.BTCallbacks,
+        VideoStreamDecoder.VideoStreamDecoderCallbacks {
 
     private static ServiceFragment instance;
     public static ServiceFragment getInstance(){
@@ -60,6 +61,8 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
     @Override
     public void onDestroy() {
         super.onDestroy();
+        setEnableVideo(false);
+        DataTransmitter.getInstance().transmitData();
         BluetoothCommunicationHandler.getInstance().deregisterListener(this);
         BluetoothCommunicationHandler.getInstance().disconnect();
     }
@@ -89,37 +92,6 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
             @Override
             public void onSurfaceTextureUpdated(SurfaceTexture surface) {}
         });
-    }
-
-    @Override
-    public void onClick(View v) {
-
-        if(settingsActionsDialog != null && settingsActionsDialog.isShowing())
-            settingsActionsDialog.dismiss();
-
-        switch (v.getId()){
-            case R.id.btn_bt_connect:
-                bluetoothHelper.pickBTDeviceAndConnect();
-                break;
-            case R.id.btn_bt_disconnect:
-                BluetoothCommunicationHandler.getInstance().disconnect();
-                break;
-            case R.id.btn_reboot:
-                DataTransmitter.command = DataTransmitter.cmd_reboot;
-                break;
-            case R.id.btn_halt:
-                DataTransmitter.command = DataTransmitter.cmd_halt;
-                break;
-            case R.id.btn_clear_log:
-                logAdapter.clear();
-                break;
-            case R.id.btn_share_log:
-                shareLog();
-                break;
-            case R.id.btn_settings:
-                showSettingsAndActionsDialog();
-                break;
-        }
     }
 
     private void showSettingsAndActionsDialog(){
@@ -164,6 +136,37 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
     }
 
     @Override
+    public void onClick(View v) {
+
+        if(settingsActionsDialog != null && settingsActionsDialog.isShowing())
+            settingsActionsDialog.dismiss();
+
+        switch (v.getId()){
+            case R.id.btn_bt_connect:
+                bluetoothHelper.pickBTDeviceAndConnect();
+                break;
+            case R.id.btn_bt_disconnect:
+                BluetoothCommunicationHandler.getInstance().disconnect();
+                break;
+            case R.id.btn_reboot:
+                DataTransmitter.command = DataTransmitter.cmd_reboot;
+                break;
+            case R.id.btn_halt:
+                DataTransmitter.command = DataTransmitter.cmd_halt;
+                break;
+            case R.id.btn_clear_log:
+                logAdapter.clear();
+                break;
+            case R.id.btn_share_log:
+                shareLog();
+                break;
+            case R.id.btn_settings:
+                showSettingsAndActionsDialog();
+                break;
+        }
+    }
+
+    @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         switch (buttonView.getId()){
             case R.id.sw_autoscroll:
@@ -173,6 +176,8 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
                 setEnableLog(isChecked);
                 break;
             case R.id.sw_enable_video:
+                if(settingsActionsDialog != null && settingsActionsDialog.isShowing())
+                    settingsActionsDialog.dismiss();
                 setEnableVideo(isChecked);
                 break;
         }
@@ -189,30 +194,43 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
 
     private void setEnableVideo(boolean enable){
 
-        if(enable && v.findViewById(R.id.video).getVisibility() == View.GONE){
+        if (videoStreamDecoder != null){
+            videoStreamDecoder.interrupt();
+            try{
+                videoStreamDecoder.join(TcpIpReader.IO_TIMEOUT * 2);
+            }catch (Exception ex) {}
+            videoStreamDecoder = null;
+        }
+
+        if(enable){
 
             DataTransmitter.command = DataTransmitter.cmd_video_on;
 
             v.findViewById(R.id.video).setVisibility(View.VISIBLE);
 
-            videoStreamDecoder = new VideoStreamDecoder();
+            videoStreamDecoder = new VideoStreamDecoder(this);
             videoStreamDecoder.setSurface(surface);
             videoStreamDecoder.start();
 
-        }else if(!enable && v.findViewById(R.id.video).getVisibility() == View.VISIBLE){
-
+        }else{
             DataTransmitter.command = DataTransmitter.cmd_video_off;
-
-            if (videoStreamDecoder != null){
-                videoStreamDecoder.interrupt();
-                try{
-                    videoStreamDecoder.join(TcpIpReader.IO_TIMEOUT * 2);
-                }catch (Exception ex) {}
-                videoStreamDecoder = null;
-            }
-
             v.findViewById(R.id.video).setVisibility(View.GONE);
         }
+    }
+
+    private void toast(String text){
+        try {
+            Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
+        }catch (Exception e){}
+
+    }
+
+    private void shareLog(){
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, logAdapter.dataToString());
+        getActivity().startActivityForResult(Intent.createChooser(intent, "Share via"), REQUEST_CODE_SHARE_LOG);
     }
 
     @Override
@@ -224,12 +242,12 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
     }
 
     @Override
-    public void frameReceived(IRxFrame frame) {
+    public void onBluetoothFrameReceived(IRxFrame frame) {
         logAdapter.addFrame(frame);
     }
 
     @Override
-    public void onConnected() {
+    public void onBluetoothConnected() {
         toast("CONNETCED");
         v.findViewById(R.id.indicator_bt_connected).setVisibility(View.VISIBLE);
         WaitingDialog.hide();
@@ -237,27 +255,41 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
     }
 
     @Override
-    public void onDisconnected() {
+    public void onBluetoothDisconnected() {
         toast("DISCONNETCED");
         v.findViewById(R.id.indicator_bt_connected).setVisibility(View.GONE);
         DataTransmitter.getInstance().stop();
     }
 
     @Override
-    public void onConnectionFailed(String message) {
+    public void onBluetoothConnectionFailed(String message) {
         toast("FAILED TO CONNECT: " + message);
         WaitingDialog.hide();
     }
 
-    private void toast(String text){
-        Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
+    @Override
+    public void onVideoConnecting() {
+        WaitingDialog.show(getActivity());
+        toast("Attempting to connect to video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
     }
 
-    public void shareLog(){
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, logAdapter.dataToString());
-        getActivity().startActivityForResult(Intent.createChooser(intent, "Share via"), REQUEST_CODE_SHARE_LOG);
+    @Override
+    public void onVideoConnected() {
+        WaitingDialog.hide();
+        toast("Connected to video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
+    }
+
+    @Override
+    public void onVideoFailedToConnect() {
+        setEnableVideo(false);
+        WaitingDialog.hide();
+        toast("Failed to connect to video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
+    }
+
+    @Override
+    public void onVideoDisconnected() {
+        setEnableVideo(false);
+        WaitingDialog.hide();
+        toast("Disconnected from video source " + Settings.RPi_IP + ":" + Settings.RPi_video_port);
     }
 }
