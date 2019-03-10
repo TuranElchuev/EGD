@@ -18,7 +18,7 @@ class EGD:
         self.ser = serial.Serial("/dev/serial0", 9600)
 
         self.video_proc = None
-        self.video_cmd = "raspivid -n -ih -t 0 -rot 0 -w 720 -h 480 -fps 15 -b 1000000 -o - | nc -lkv4 8000"
+        self.video_cmd = "raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 25 -b 1000000 -o - | nc -lkv4 8000"
 
         self.S = 0x33
         self.E = 0x77
