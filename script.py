@@ -5,15 +5,14 @@ import RPi.GPIO as GPIO
 import os
 import signal
 import subprocess
+import multiprocessing
+import time
+
 
 
 class EGD:
 
     def __init__(self):
-
-        GPIO.setmode(GPIO.BCM)
-        #GPIO.setup(5, GPIO.OUT)
-        #GPIO.setup(6, GPIO.OUT)
 
         self.ser = serial.Serial("/dev/serial0", 9600)
 
@@ -39,15 +38,70 @@ class EGD:
 
         self.clearSerial()
 
-        self.writeSerialMessage("PROGRAM STARTED")
+        self.targetSteps = multiprocessing.Value('i', 64)
+        self.stop_stepper = multiprocessing.Value('i', 0)
+        
+        self.stepper_process = multiprocessing.Process(target = self.run_stepper, args=(self.targetSteps, self.stop_stepper))
+        self.stepper_process.start()
 
+        self.writeSerialMessage("PROGRAM STARTED")
+        
         try:
             while True:
                 self.readSerial()
         except KeyboardInterrupt:
             pass
+            self.cleanup()        
 
-        self.cleanup()
+        
+
+    def run_stepper(self, target, stop):
+
+        GPIO.setmode(GPIO.BCM)
+        stepper_control_pins = [6,13,19,26]
+
+        for pin in stepper_control_pins:
+          GPIO.setup(pin, GPIO.OUT)
+          GPIO.output(pin, 0)
+
+        stepper_fwd_seq = [
+          [1,0,0,0],
+          [1,1,0,0],
+          [0,1,0,0],
+          [0,1,1,0],
+          [0,0,1,0],
+          [0,0,1,1],
+          [0,0,0,1],
+          [1,0,0,1]
+        ]
+
+        currentSteps = target.value
+
+        while stop.value == 0:
+            while currentSteps == target.value and stop.value == 0:
+                continue
+
+            if stop.value == 1:
+                break
+
+            for j in range(8):
+
+                index = j
+                if currentSteps > target.value:
+                    index = 7 - j
+                
+                for pin in range(4):
+                    GPIO.output(stepper_control_pins[pin], stepper_fwd_seq[index][pin])
+                    time.sleep(0.00025)
+
+            if currentSteps > target.value:
+                currentSteps -= 1
+            else:
+                currentSteps += 1
+                
+        GPIO.cleanup()
+
+            
 
     def readSerial(self):
         
@@ -80,6 +134,8 @@ class EGD:
                 if val == self.E:           # End of frame
                     self.newFrameReceived()
                 self.byteCounter = 0
+
+
                     
     def newFrameReceived(self):
             
@@ -104,31 +160,40 @@ class EGD:
 
         self.joystickY()
 
+
     def halt(self):
         self.writeSerialMessage("Halt...")
         subprocess.call("sudo halt", shell=True)
+
         
     def reboot(self):
         self.writeSerialMessage("Reboot...")
         subprocess.call("sudo reboot", shell=True)
 
+
     def go(self):
         self.writeSerialMessage("Command: go")
+
 
     def stop(self):
         self.writeSerialMessage("Command: stop")
 
+
     def respond(self):
         self.writeSerialMessage("Command: respond")
 
+
     def led(self):
         self.writeSerialMessage("Command: led")
+
         
     def joystickX(self):
-        return
+        self.targetSteps.value = self.joystick_X
+
         
     def joystickY(self):
         return
+
 
     def video(self, on):
         if on:
@@ -140,17 +205,24 @@ class EGD:
             if self.video_proc is not None:
                 os.killpg(os.getpgid(self.video_proc.pid), signal.SIGTERM)
                 self.video_proc = None
+
             
     def writeSerialMessage(self, message):
         self.ser.write("RPi: " + message + "\r\n")
         self.ser.flush()
 
+
     def clearSerial(self):
         while(self.ser.in_waiting > 0):
             self.ser.read()
 
+
     def cleanup(self):
-        GPIO.cleanup()
+        print "cleanup"
         self.video(False)
+        self.stepper_process.join()
+        self.stop_stepper.value = 1
+        #GPIO.cleanup()
+        
 
 EGD()
