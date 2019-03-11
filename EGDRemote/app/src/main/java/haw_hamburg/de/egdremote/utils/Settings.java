@@ -7,9 +7,9 @@ public class Settings {
 
     public static String RPi_IP = "0.0.0.0";
     public static int RPi_video_port = 8000;
-    public static int RPi_video_fps = 15;
-    public static int RPi_video_W = 720;
-    public static int RPi_video_H = 480;
+    public static int RPi_video_fps = 25;
+    public static int RPi_video_W = 1280;
+    public static int RPi_video_H = 720;
 
     private static final String PREF = "preferences";
 
@@ -29,9 +29,9 @@ public class Settings {
 
         RPi_IP = sPref.getString(KEY_IP, "0.0.0.0");
         RPi_video_port = sPref.getInt(KEY_PORT, 8000);
-        RPi_video_W = sPref.getInt(KEY_W, 720);
-        RPi_video_H = sPref.getInt(KEY_H, 480);
-        RPi_video_fps = sPref.getInt(KEY_FPS, 15);
+        RPi_video_W = sPref.getInt(KEY_W, 1280);
+        RPi_video_H = sPref.getInt(KEY_H, 720);
+        RPi_video_fps = sPref.getInt(KEY_FPS, 25);
     }
 
     public static void save(Context context){
