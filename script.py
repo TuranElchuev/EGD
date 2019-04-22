@@ -21,6 +21,13 @@ class EGD:
                         
         GPIO.setmode(GPIO.BCM)
 
+        # configure Push-button
+        self.btn_debounce_duration = 0.5 # seconds to wait until next button press can be processed
+        self.btn_press_time = 0 # will store time in seconds when button is pressed
+        self.btn_pin = 16
+        GPIO.setup(self.btn_pin, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+        GPIO.add_event_detect(self.btn_pin, GPIO.FALLING, self.btn_pressed)
+
         # configure LED pin
         self.led_on = False
         GPIO.setup(self.led_pin, GPIO.OUT)
@@ -116,8 +123,8 @@ class EGD:
 
                 index = j # index used to iterate through stepper input values (0...7)
 
-                # if current steps are greater than target, then bottom-up iteration (reverse)
-                if currentSteps > target.value:
+                # if current steps are less than target, then bottom-up iteration
+                if currentSteps < target.value:
                     index = 7 - j # swapped indexes will run in the range 7...0
 
                 # apply stepper iput values corresponding to current index
@@ -177,7 +184,6 @@ class EGD:
 
                 # reset byte counter when the 5th byte (starting from start of the frame) is read
                 self.byteCounter = 0
-
 
     '''
         Is called when new frame is sampled.
@@ -278,6 +284,14 @@ class EGD:
             time.sleep(0.15)
             GPIO.output(self.buzzer_pin, 0)
             time.sleep(0.05)
+
+    # function that is called when button is pressed
+    def btn_pressed(self, pin):
+        event_time = time.time()
+        if(event_time - self.btn_press_time > self.btn_debounce_duration):
+            self.btn_press_time = event_time
+            # send corresponding string message via serial interface
+            self.writeSerialMessage("cmd:btn")
 
 
     # sends a string via UART to Android
