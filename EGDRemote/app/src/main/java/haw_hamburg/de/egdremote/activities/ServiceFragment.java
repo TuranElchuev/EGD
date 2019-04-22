@@ -1,11 +1,13 @@
 package haw_hamburg.de.egdremote.activities;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.SurfaceTexture;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.Surface;
 import android.view.TextureView;
@@ -33,6 +35,8 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
         BluetoothCommunicationHandler.BTCallbacks,
         VideoStreamDecoder.VideoStreamDecoderCallbacks,
         TextureView.SurfaceTextureListener{
+
+    private static final String MSG_PREFIX_CMD = "RPi: cmd:";
 
     private static ServiceFragment instance;
     public static ServiceFragment getInstance(){
@@ -216,6 +220,10 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
         }catch (Exception e){}
     }
 
+    private void vibrate(){
+        ((Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE)).vibrate(400);
+    }
+
     private void shareLog(){
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
@@ -234,6 +242,9 @@ public class ServiceFragment extends Fragment implements View.OnClickListener,
 
     @Override
     public void onBluetoothFrameReceived(IRxFrame frame) {
+        if(frame.toString().startsWith(MSG_PREFIX_CMD))
+            vibrate();
+
         logAdapter.addFrame(frame);
     }
 
