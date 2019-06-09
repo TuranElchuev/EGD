@@ -23,30 +23,49 @@ import haw_hamburg.de.egdremote.R;
 import haw_hamburg.de.egdremote.utils.WaitingDialog;
 import haw_hamburg.de.egdremote.activities.ServiceFragment;
 
+/*
+Author: Turan Elchuev, turan.elchuev@haw-hamburg.de, 02/2019
+
+This is a helper class to deal with BluetoothCommunicationHandler.class.
+
+Provides some useful methods, e.g. pickBTDeviceAndConnect().
+
+*/
+
 public class BluetoothHelper {
 
     private Activity activity;
 
-    public BluetoothHelper(Activity activity){
+    public BluetoothHelper(Activity activity) {
         this.activity = activity;
     }
 
-    public void pickBTDeviceAndConnect(){
+    /*
+     This method pops up a dialog with a list of paired Bluetooth devices.
+     Clicking on a device from the list will initiate connection with that particular device.
+     If a particular device is not in the list, then it is not paired yet. In this case
+     by clicking the button "Manage Devices" under the list, one can pair with new devices.
+
+     After establishing connection with the device, the connection can be accessed using
+     BluetoothCommunicationHandler.getInstance() e.g. to transmit bytes
+     or to attach a listener in order to receive IRxFrame frames and connection callbacks.
+     */
+    public void pickBTDeviceAndConnect() {
 
         BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
         if (!btAdapter.isEnabled()) {
-            Toast.makeText(activity,"ENABLE BLUETOOTH", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "ENABLE BLUETOOTH", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if(BluetoothCommunicationHandler.getInstance().isConnected()){
+        if (BluetoothCommunicationHandler.getInstance().isConnected()) {
             BluetoothCommunicationHandler.getInstance().disconnect();
             return;
         }
 
         final ArrayList<BluetoothDevice> pairedDevices = new ArrayList<>(btAdapter.getBondedDevices());
 
-        final ArrayAdapter<BluetoothDevice> adapter = new ArrayAdapter<BluetoothDevice>(activity, 0, pairedDevices){
+        final ArrayAdapter<BluetoothDevice> adapter = new ArrayAdapter<BluetoothDevice>(activity, 0, pairedDevices) {
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -55,10 +74,10 @@ public class BluetoothHelper {
                     convertView = LayoutInflater.from(getContext()).inflate(R.layout.bt_device_item, parent, false);
                 }
 
-                ((TextView)convertView.findViewById(R.id.name)).
+                ((TextView) convertView.findViewById(R.id.name)).
                         setText(pairedDevices.get(position).getName());
 
-                ((TextView)convertView.findViewById(R.id.mac)).
+                ((TextView) convertView.findViewById(R.id.mac)).
                         setText(pairedDevices.get(position).getAddress());
 
                 return convertView;
@@ -79,7 +98,7 @@ public class BluetoothHelper {
             }
         });
 
-        ((Button)dialog.findViewById(R.id.btn_new)).setOnClickListener(new View.OnClickListener() {
+        ((Button) dialog.findViewById(R.id.btn_new)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.cancel();
@@ -90,7 +109,7 @@ public class BluetoothHelper {
         dialog.show();
     }
 
-    private void addNewBTDevice(){
+    private void addNewBTDevice() {
         activity.startActivityForResult(new Intent(android.provider.Settings.ACTION_BLUETOOTH_SETTINGS), ServiceFragment.REQUEST_CODE_BTSETTINGS);
     }
 }

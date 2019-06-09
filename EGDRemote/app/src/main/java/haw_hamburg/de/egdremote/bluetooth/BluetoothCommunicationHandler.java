@@ -15,6 +15,14 @@ import java.util.UUID;
 import haw_hamburg.de.egdremote.utils.IRxFrame;
 import haw_hamburg.de.egdremote.utils.RxFrameString;
 
+/*
+Author: Turan Elchuev, turan.elchuev@haw-hamburg.de, 02/2019
+
+This class handles Bluetooth communication.
+Given a bluetooth device object, performs connections.
+The class provides methods for sending bytes, receiving frames (IRxFrame) as well as
+provides callbacks for connect/disconnect/failed connection and frame received events.
+*/
 
 public class BluetoothCommunicationHandler {
 
@@ -29,17 +37,20 @@ public class BluetoothCommunicationHandler {
     private final int HANDLER_DISCONNECTED = 2;
     private final int HANDLER_FAILED_TO_CONNECT = 3;
 
-    public interface BTCallbacks{
+    public interface BTCallbacks {
         void onBluetoothFrameReceived(IRxFrame frame);
+
         void onBluetoothConnected();
+
         void onBluetoothDisconnected();
+
         void onBluetoothConnectionFailed(String message);
     }
 
     private static BluetoothCommunicationHandler instance;
 
-    public static BluetoothCommunicationHandler getInstance(){
-        if(instance == null){
+    public static BluetoothCommunicationHandler getInstance() {
+        if (instance == null) {
             instance = new BluetoothCommunicationHandler();
         }
         return instance;
@@ -47,16 +58,16 @@ public class BluetoothCommunicationHandler {
 
     private ArrayList<BTCallbacks> listeners = new ArrayList<BTCallbacks>();
 
-    private Handler messageHandler = new Handler(){
+    private Handler messageHandler = new Handler() {
 
         public void handleMessage(Message msg) {
 
             switch (msg.what) {
 
                 case HANDLER_FRAME_RECEIVED:
-                    for(BTCallbacks listener: listeners){
-                        if(listener != null){
-                            listener.onBluetoothFrameReceived((IRxFrame)msg.obj);
+                    for (BTCallbacks listener : listeners) {
+                        if (listener != null) {
+                            listener.onBluetoothFrameReceived((IRxFrame) msg.obj);
                         }
                     }
                     break;
@@ -79,33 +90,36 @@ public class BluetoothCommunicationHandler {
         }
     };
 
-    public void registerListener(BTCallbacks listener){
-        if(!listeners.contains(listener)){
+    // pass a listener to receive callbacks
+    public void registerListener(BTCallbacks listener) {
+        if (!listeners.contains(listener)) {
             listeners.add(listener);
         }
     }
 
-    public void deregisterListener(BTCallbacks listener){
+    // remove listener when no longer needed
+    public void deregisterListener(BTCallbacks listener) {
         if (listeners.contains(listener)) {
             listeners.remove(listener);
         }
     }
 
+    // send plain byte array
     public void sendBytes(byte[] bytes) {
-        if(!isConnected()){
+        if (!isConnected()) {
             return;
         }
         connectedThread.write(bytes);
     }
 
-    public void connect(BluetoothDevice device){
+    public void connect(BluetoothDevice device) {
 
-        if(isConnected()){
+        if (isConnected()) {
             disconnect();
             return;
         }
 
-        if(device == null){
+        if (device == null) {
             onConnectionFailed("INVALID DEVICE");
             return;
         }
@@ -120,26 +134,26 @@ public class BluetoothCommunicationHandler {
         connectThread.start();
     }
 
-    public void disconnect(){
+    public void disconnect() {
         stopThreads();
     }
 
-    public boolean isConnected(){
+    public boolean isConnected() {
         return (connectedThread != null
                 && bluetoothSocket != null
                 && bluetoothSocket.isConnected());
     }
 
-    private void onConnected(){
-        for(BTCallbacks listener: listeners) {
+    private void onConnected() {
+        for (BTCallbacks listener : listeners) {
             if (listener != null) {
                 listener.onBluetoothConnected();
             }
         }
     }
 
-    private void onDisconnected(){
-        for(BTCallbacks listener: listeners) {
+    private void onDisconnected() {
+        for (BTCallbacks listener : listeners) {
             if (listener != null) {
                 listener.onBluetoothDisconnected();
             }
@@ -147,8 +161,8 @@ public class BluetoothCommunicationHandler {
         stopThreads();
     }
 
-    private void onConnectionFailed(String message){
-        for(BTCallbacks listener: listeners) {
+    private void onConnectionFailed(String message) {
+        for (BTCallbacks listener : listeners) {
             if (listener != null) {
                 listener.onBluetoothConnectionFailed(message);
             }
@@ -156,26 +170,34 @@ public class BluetoothCommunicationHandler {
         stopThreads();
     }
 
-    private void stopThreads(){
-        if(connectThread != null){
-            try{
+    private void stopThreads() {
+        if (connectThread != null) {
+            try {
                 connectThread.cancel();
-            }catch(Exception e){}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
-        if(connectedThread != null){
-            try{
+        if (connectedThread != null) {
+            try {
                 connectedThread.cancel();
-            }catch(Exception e){}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
+    // A thread to handle the process of connecting. A separate thread needed since the
+    // process of connecting is blocking GUI and can take some time
     private class ConnectThread extends Thread {
 
         public ConnectThread(BluetoothDevice device) {
             try {
                 bluetoothSocket = device.createInsecureRfcommSocketToServiceRecord(MY_UUID);
-            } catch (IOException e) {}
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         public void run() {
@@ -194,7 +216,9 @@ public class BluetoothCommunicationHandler {
 
                 try {
                     bluetoothSocket.close();
-                } catch (IOException closeException) { }
+                } catch (IOException closeException) {
+                    closeException.printStackTrace();
+                }
 
                 messageHandler.obtainMessage(HANDLER_FAILED_TO_CONNECT, 0, -1, null).sendToTarget();
 
@@ -205,10 +229,14 @@ public class BluetoothCommunicationHandler {
         public void cancel() {
             try {
                 bluetoothSocket.close();
-            } catch (IOException e) { }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
+    // A thread to handle running connection (after connection was established).
+    // Sends bytes and catches IRxFrame frames
     private class ConnectedThread<T extends IRxFrame> extends Thread {
 
         private InputStream inputStream;
@@ -218,7 +246,8 @@ public class BluetoothCommunicationHandler {
             try {
                 inputStream = bluetoothSocket.getInputStream();
                 outputStream = bluetoothSocket.getOutputStream();
-            } catch (IOException e) { }
+            } catch (IOException e) {
+            }
         }
 
         public void run() {
@@ -230,22 +259,28 @@ public class BluetoothCommunicationHandler {
                     messageHandler.obtainMessage(HANDLER_FRAME_RECEIVED, 0, 0, frame).sendToTarget();
                 } catch (IOException e) {
                     messageHandler.obtainMessage(HANDLER_DISCONNECTED, 0, 0, null).sendToTarget();
+                    e.printStackTrace();
                     break;
                 }
             }
         }
 
+        // send byte array
         public void write(byte[] bytes) {
             try {
                 outputStream.write(bytes);
                 outputStream.flush();
-            } catch (IOException e) { }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         public void cancel() {
             try {
                 bluetoothSocket.close();
-            } catch (IOException e) { }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

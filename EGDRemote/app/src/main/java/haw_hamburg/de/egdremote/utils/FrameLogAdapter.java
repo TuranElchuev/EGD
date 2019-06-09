@@ -14,6 +14,17 @@ import java.util.ArrayList;
 
 import haw_hamburg.de.egdremote.R;
 
+/*
+Author: Turan Elchuev, turan.elchuev@haw-hamburg.de, 02/2019
+
+An adapter class to handle Log data. Can be attached to a List view in order to
+display log data in UI.
+
+Provides basic functionality such as adding IRxFrame frames into the log,
+clearing log, setting/resetting autoscroll mode and getting the entire log
+in a single string for sharing purpose (e.g. sending via Email).
+ */
+
 public class FrameLogAdapter extends ArrayAdapter {
 
     private ArrayList<IRxFrame> frames = new ArrayList<>();
@@ -34,7 +45,7 @@ public class FrameLogAdapter extends ArrayAdapter {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.frame_log_item, parent, false);
         }
 
-        ((TextView)convertView.findViewById(R.id.text)).
+        ((TextView) convertView.findViewById(R.id.text)).
                 setText(sdf.format(new Timestamp(frames.get(position).getTimestamp()))
                         + ": " + frames.get(position).toString());
 
@@ -46,14 +57,17 @@ public class FrameLogAdapter extends ArrayAdapter {
         return frames.size();
     }
 
-    public void addFrame(IRxFrame frame){
+    // Add the recived IRxFrame into the log
+    public void addFrame(IRxFrame frame) {
         frames.add(frame);
         notifyDataSetChanged();
-        if(autoScroll){
+        if (autoScroll) {
             list.setSelection(getCount() - 1);
         }
     }
 
+    // Set autoscroll. True - each newly added entry in the log will cause it scroll at the bottom automatically.
+    // False - scrolling will not happen automatically.
     public void setAutoscroll(boolean autoScroll) {
         this.autoScroll = autoScroll;
     }
@@ -62,14 +76,16 @@ public class FrameLogAdapter extends ArrayAdapter {
         return autoScroll;
     }
 
-    public void clear(){
+    // clear log
+    public void clear() {
         frames.clear();
         notifyDataSetChanged();
     }
 
-    public String dataToString(){
+    // Returns the entire log as a single string, e.g. to share via Email
+    public String dataToString() {
         StringBuilder sb = new StringBuilder();
-        for(IRxFrame frame : frames){
+        for (IRxFrame frame : frames) {
             sb.append(sdf.format(new Timestamp(frame.getTimestamp())))
                     .append(":\t\t")
                     .append(frame.toString().trim())

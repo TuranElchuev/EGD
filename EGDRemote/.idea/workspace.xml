@@ -16,17 +16,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f123318-6df9-4815-9ce1-b1b27a176756" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+      <change beforePath="$PROJECT_DIR$/../app-debug.apk" afterPath="$PROJECT_DIR$/../app-debug.apk" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,130 +38,7 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ServiceFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/ServiceFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="38" column="55" lean-forward="false" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
-              <folding>
-                <element signature="method#onCreate#0;class#ServiceFragment#0" expanded="false" />
-                <element signature="method#onCreateView#0;class#ServiceFragment#0" expanded="false" />
-                <element signature="method#onDestroy#0;class#ServiceFragment#0" expanded="false" />
-                <element signature="method#onClick#0;class#ServiceFragment#0" expanded="false" />
-                <element signature="method#setEnableLog#0;class#ServiceFragment#0" expanded="false" />
-                <element signature="method#toast#0;class#ServiceFragment#0" expanded="false" />
-                <element signature="method#onActivityResult#0;class#ServiceFragment#0" expanded="false" />
-                <element signature="method#onBluetoothConnected#0;class#ServiceFragment#0" expanded="false" />
-                <element signature="method#onBluetoothDisconnected#0;class#ServiceFragment#0" expanded="false" />
-                <element signature="method#onBluetoothConnectionFailed#0;class#ServiceFragment#0" expanded="false" />
-                <element signature="method#onVideoConnecting#0;class#ServiceFragment#0" expanded="false" />
-                <element signature="method#onVideoConnected#0;class#ServiceFragment#0" expanded="false" />
-                <element signature="method#onVideoFailedToConnect#0;class#ServiceFragment#0" expanded="false" />
-                <element signature="method#onVideoDisconnected#0;class#ServiceFragment#0" expanded="false" />
-                <element signature="method#onSurfaceTextureAvailable#0;class#ServiceFragment#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ControlsFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/ControlsFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IRxFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/IRxFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BluetoothHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/bluetooth/BluetoothHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="48" lean-forward="false" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dimens.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="12" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dimens.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values-large/dimens.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="44" lean-forward="false" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Settings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/Settings.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="32" column="45" lean-forward="false" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RxFrameString.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/RxFrameString.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-              <folding>
-                <element signature="e#1026#1027#0" expanded="true" />
-                <element signature="e#1053#1054#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="24" column="54" lean-forward="false" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -190,6 +57,9 @@
       <find>joystick_fragment_background</find>
       <find>format</find>
       <find>tostring</find>
+      <find>HANDLER_FAILED_TO_CONNECT</find>
+      <find>catch</find>
+      <find>MSG_PREFIX_CMD</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -2228,27 +2098,36 @@
         <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/ServiceFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/Activities/JoystickFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/VideoStreamDecoder.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/bluetooth/DataTransmitter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/video/VideoStreamDecoder.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/WaitingDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/shape_joystick.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_joystick.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_controls.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_service.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/Settings.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/ServiceFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-large/dimens.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/ControlsFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/JoystickFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/ServiceFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/bluetooth/BluetoothCommunicationHandler.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/bluetooth/BluetoothHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/bluetooth/DataTransmitter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/FrameLogAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/IRxFrame.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/RxFrameString.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/Settings.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/WaitingDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/video/VideoStreamDecoder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/video/TcpIpReader.java" />
+        <option value="$PROJECT_DIR$/../script.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1637" />
-    <option name="y" value="10" />
+    <option name="x" value="1331" />
+    <option name="y" value="-12" />
     <option name="width" value="1404" />
     <option name="height" value="1011" />
   </component>
@@ -2280,13 +2159,52 @@
             <path>
               <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="egdremote" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="egdremote" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="egdremote" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="bluetooth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="egdremote" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="egdremote" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="video" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
             <path>
               <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
@@ -2305,13 +2223,17 @@
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="device.picker.selection" value="7_WSVGA_Tablet_API_28" />
+    <property name="device.picker.selection" value="CB5A214S4T" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/app" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="debug" />
     <property name="ExportApk.SignV1" value="true" />
     <property name="ExportApk.SignV2" value="true" />
+    <property name="DEBUGGABLE_DEVICE" value="xiaomi-redmi_6a-aefde4687d27" />
+    <property name="DEBUGGABLE_PROCESS" value="haw_hamburg.de.egdremote" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
+    <property name="DEBUGGER_ID" value="Auto" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -2484,8 +2406,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1637" y="10" width="1404" height="1011" extended-state="0" />
-    <editor active="true" />
+    <frame x="1331" y="-12" width="1404" height="1011" extended-state="0" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2497,18 +2418,19 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21506551" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23180874" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29475984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44759825" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2958884" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2962578" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18272096" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49126637" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2516,7 +2438,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2524,25 +2445,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/IRxFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/FrameLogAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/video/TcpIpReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -2570,7 +2477,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#1085#1086#0" expanded="false" />
+            <element signature="e#1125#1126#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2650,19 +2560,16 @@
         <state relative-caret-position="370">
           <caret line="113" column="148" lean-forward="false" selection-start-line="113" selection-start-column="148" selection-end-line="113" selection-end-column="148" />
           <folding>
-            <element signature="method#onCreate#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onClick#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#setEnableLog#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#toast#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#vibrate#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#shareLog#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onActivityResult#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onBluetoothFrameReceived#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onBluetoothConnected#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onBluetoothDisconnected#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onBluetoothConnectionFailed#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onVideoConnecting#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onVideoConnected#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onVideoFailedToConnect#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onVideoDisconnected#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onSurfaceTextureAvailable#0;class#ServiceFragment#0" expanded="false" />
           </folding>
@@ -2756,50 +2663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/JoystickFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/WaitingDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/FrameLogAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/video/VideoStreamDecoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/video/TcpIpReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/bluetooth/DataTransmitter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-398">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/shape_joystick.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -2811,16 +2674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_controls.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -2845,49 +2698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/bluetooth/BluetoothCommunicationHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="59" column="25" lean-forward="false" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" column="54" lean-forward="false" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/IRxFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="32" column="45" lean-forward="false" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/RxFrameString.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-          <folding>
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1053#1054#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider editor-type-id="android-manifest">
         <state />
@@ -2895,57 +2705,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="64" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/ServiceFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="38" column="55" lean-forward="false" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
-          <folding>
-            <element signature="method#onCreate#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onClick#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#setEnableLog#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#toast#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onBluetoothConnected#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onBluetoothDisconnected#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onBluetoothConnectionFailed#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onVideoConnecting#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onVideoConnected#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onVideoFailedToConnect#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onVideoDisconnected#0;class#ServiceFragment#0" expanded="false" />
-            <element signature="method#onSurfaceTextureAvailable#0;class#ServiceFragment#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/ControlsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/bluetooth/BluetoothHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="48" lean-forward="false" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -2970,6 +2729,223 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="44" lean-forward="false" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="48" lean-forward="false" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_controls.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/bluetooth/BluetoothHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="32" selection-end-column="2" />
+          <folding>
+            <element signature="method#pickBTDeviceAndConnect#0;class#BluetoothHelper#0" expanded="false" />
+            <element signature="e#3327#3684#0" expanded="false" />
+            <element signature="e#3683#3684#0" expanded="false" />
+            <element signature="e#3760#3943#0" expanded="false" />
+            <element signature="e#3942#3943#0" expanded="false" />
+            <element signature="method#addNewBTDevice#0;class#BluetoothHelper#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/ServiceFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="198" column="52" lean-forward="false" selection-start-line="198" selection-start-column="52" selection-end-line="198" selection-end-column="52" />
+          <folding>
+            <element signature="method#setupGUI#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#showSettingsAndActionsDialog#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#setEnableLog#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#setEnableVideo#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#toast#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#vibrate#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#shareLog#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onCreate#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onCheckedChanged#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onClick#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onBluetoothFrameReceived#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onBluetoothConnected#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onBluetoothDisconnected#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onBluetoothConnectionFailed#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onVideoConnecting#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onVideoConnected#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onVideoFailedToConnect#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onVideoDisconnected#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onSurfaceTextureAvailable#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onSurfaceTextureSizeChanged#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onSurfaceTextureUpdated#0;class#ServiceFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/FrameLogAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="method#getView#0;class#FrameLogAdapter#0" expanded="false" />
+            <element signature="e#1749#1750#0" expanded="false" />
+            <element signature="e#1785#1786#0" expanded="false" />
+            <element signature="e#2245#2246#0" expanded="false" />
+            <element signature="e#2289#2290#0" expanded="false" />
+            <element signature="e#2326#2327#0" expanded="false" />
+            <element signature="e#2359#2360#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/bluetooth/DataTransmitter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="7" selection-end-column="60" />
+          <folding>
+            <element signature="e#2788#2789#0" expanded="false" />
+            <element signature="e#2817#2818#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/IRxFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="14" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/bluetooth/BluetoothCommunicationHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="257" column="52" lean-forward="false" selection-start-line="257" selection-start-column="41" selection-end-line="257" selection-end-column="52" />
+          <folding>
+            <element signature="method#getInstance#0;class#BluetoothCommunicationHandler#0" expanded="false" />
+            <element signature="method#registerListener#0;class#BluetoothCommunicationHandler#0" expanded="false" />
+            <element signature="method#deregisterListener#0;class#BluetoothCommunicationHandler#0" expanded="false" />
+            <element signature="method#connect#0;class#BluetoothCommunicationHandler#0" expanded="false" />
+            <element signature="method#isConnected#0;class#BluetoothCommunicationHandler#0" expanded="false" />
+            <element signature="method#onConnected#0;class#BluetoothCommunicationHandler#0" expanded="false" />
+            <element signature="method#onDisconnected#0;class#BluetoothCommunicationHandler#0" expanded="false" />
+            <element signature="method#onConnectionFailed#0;class#BluetoothCommunicationHandler#0" expanded="false" />
+            <element signature="method#stopThreads#0;class#BluetoothCommunicationHandler#0" expanded="false" />
+            <element signature="class#ConnectThread#0;class#BluetoothCommunicationHandler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/RxFrameString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="15" selection-end-column="2" />
+          <folding>
+            <element signature="e#2255#2256#0" expanded="false" />
+            <element signature="e#2282#2283#0" expanded="false" />
+            <element signature="e#2328#2329#0" expanded="false" />
+            <element signature="e#2355#2356#0" expanded="false" />
+            <element signature="e#2403#2404#0" expanded="false" />
+            <element signature="e#2435#2436#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/WaitingDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="92" lean-forward="false" selection-start-line="10" selection-start-column="92" selection-end-line="10" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/ControlsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/JoystickFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/utils/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-27/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="761" column="16" lean-forward="false" selection-start-line="761" selection-start-column="16" selection-end-line="761" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/video/VideoStreamDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="75" column="63" lean-forward="false" selection-start-line="75" selection-start-column="63" selection-end-line="75" selection-end-column="63" />
+          <folding>
+            <element signature="e#2410#2411#0" expanded="false" />
+            <element signature="e#2450#2451#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/video/TcpIpReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-140">
+          <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding>
+            <element signature="e#1519#1520#0" expanded="false" />
+            <element signature="e#1582#1583#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1159">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
