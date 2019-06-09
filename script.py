@@ -189,7 +189,7 @@ class EGD:
         Is called when new frame is sampled.
         At this point, self.command, self.joystick_X and self.joystick_Y
         will hold most recent values.
-        According to most received command, crresponding function will be called.
+        According to the received command, corresponding function will be called.
     '''
     def newFrameReceived(self):
         
