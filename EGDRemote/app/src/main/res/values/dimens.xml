@@ -9,7 +9,7 @@
 
     <dimen name="dialog_settings_actions_width">280dp</dimen>
 
-    <dimen name="joystick_fragment_width">180dp</dimen>
+    <dimen name="joystick_fragment_width">220dp</dimen>
     <dimen name="joystick_arrow_size">60dp</dimen>
     <dimen name="joystick_panel_padding_horizontal">20dp</dimen>
     <dimen name="joystick_panel_padding_vertical">60dp</dimen>
