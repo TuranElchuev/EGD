@@ -2,5 +2,8 @@
 <resources>
 
     <dimen name="joystick_fragment_width">400dp</dimen>
+    <dimen name="controls_fragment_width">140dp</dimen>
+    <dimen name="controls_fragmenment_component_margin">15dp</dimen>
+    <dimen name="controls_fragmenment_button_size">70dp</dimen>
 
 </resources>

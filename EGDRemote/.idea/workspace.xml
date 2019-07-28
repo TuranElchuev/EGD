@@ -16,7 +16,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f123318-6df9-4815-9ce1-b1b27a176756" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../app-debug.apk" afterPath="$PROJECT_DIR$/../app-debug.apk" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_settings_actions.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_settings_actions.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-large/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-large/dimens.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,7 +46,43 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="dialog_settings_actions.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_settings_actions.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2400">
+              <caret line="160" column="52" lean-forward="false" selection-start-line="160" selection-start-column="52" selection-end-line="160" selection-end-column="52" />
+              <folding>
+                <marker date="1564340844717" expanded="true" signature="5753:5932" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dimens.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values-large/dimens.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="52" lean-forward="false" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dimens.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="67" lean-forward="false" selection-start-line="20" selection-start-column="67" selection-end-line="21" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -60,6 +104,7 @@
       <find>HANDLER_FAILED_TO_CONNECT</find>
       <find>catch</find>
       <find>MSG_PREFIX_CMD</find>
+      <find>EditText</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -2093,7 +2138,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/shape_header.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/SettingsAndActions.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/FrameLogAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_settings_actions.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/Settings.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/ServiceFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/Activities/JoystickFragment.java" />
@@ -2105,8 +2149,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_controls.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_service.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values-large/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/ControlsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/JoystickFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/activities/MainActivity.java" />
@@ -2122,12 +2164,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/video/VideoStreamDecoder.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/haw_hamburg/de/egdremote/video/TcpIpReader.java" />
         <option value="$PROJECT_DIR$/../script.py" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_settings_actions.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values-large/dimens.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1331" />
-    <option name="y" value="-12" />
+    <option name="x" value="1774" />
+    <option name="y" value="44" />
     <option name="width" value="1404" />
     <option name="height" value="1011" />
   </component>
@@ -2149,6 +2194,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2164,40 +2213,6 @@
             <path>
               <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="egdremote" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="egdremote" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="egdremote" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="bluetooth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="egdremote" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="egdremote" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="video" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
             <path>
@@ -2208,24 +2223,33 @@
             </path>
             <path>
               <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="dimens" type="c431d0b8:AndroidResGroupNode" />
+            </path>
+            <path>
+              <item name="EGDRemote" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="device.picker.selection" value="CB5A214S4T" />
+    <property name="device.picker.selection" value="HA0XG4NL" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/app" />
+    <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/.." />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="debug" />
     <property name="ExportApk.SignV1" value="true" />
@@ -2406,7 +2430,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1331" y="-12" width="1404" height="1011" extended-state="0" />
+    <frame x="1774" y="44" width="1404" height="1011" extended-state="0" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2425,7 +2449,6 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2958884" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2962578" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18272096" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2438,6 +2461,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18272096" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2454,7 +2478,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2469,7 +2492,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-398">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2477,10 +2499,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding>
-            <element signature="e#1085#1086#0" expanded="false" />
-            <element signature="e#1125#1126#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2488,7 +2506,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2551,7 +2568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="24" column="54" lean-forward="false" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2560,18 +2576,30 @@
         <state relative-caret-position="370">
           <caret line="113" column="148" lean-forward="false" selection-start-line="113" selection-start-column="148" selection-end-line="113" selection-end-column="148" />
           <folding>
+            <element signature="method#setupGUI#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#showSettingsAndActionsDialog#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#setEnableLog#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#setEnableVideo#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#toast#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#vibrate#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#shareLog#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onCreate#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onActivityResult#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onCheckedChanged#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onClick#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onBluetoothFrameReceived#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onBluetoothConnected#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onBluetoothDisconnected#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onBluetoothConnectionFailed#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onVideoConnecting#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onVideoConnected#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onVideoFailedToConnect#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onVideoDisconnected#0;class#ServiceFragment#0" expanded="false" />
             <element signature="method#onSurfaceTextureAvailable#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onSurfaceTextureSizeChanged#0;class#ServiceFragment#0" expanded="false" />
+            <element signature="method#onSurfaceTextureUpdated#0;class#ServiceFragment#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2584,7 +2612,7 @@
         <state relative-caret-position="177">
           <caret line="91" column="39" lean-forward="false" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="39" />
           <folding>
-            <marker date="1552182209161" expanded="true" signature="5541:5667" ph="..." />
+            <marker date="1564340844717" expanded="true" signature="5753:5932" ph="..." />
           </folding>
         </state>
       </provider>
@@ -2600,7 +2628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2633,19 +2660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="2219" column="0" lean-forward="false" selection-start-line="2219" selection-start-column="0" selection-end-line="2219" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_settings_actions.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="91" column="39" lean-forward="false" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="39" />
-          <folding>
-            <marker date="1552182209161" expanded="true" signature="5541:5667" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2709,30 +2723,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="12" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/values-large.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-large/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="44" lean-forward="false" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/values-large.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -2759,14 +2750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="32" selection-end-column="2" />
-          <folding>
-            <element signature="method#pickBTDeviceAndConnect#0;class#BluetoothHelper#0" expanded="false" />
-            <element signature="e#3327#3684#0" expanded="false" />
-            <element signature="e#3683#3684#0" expanded="false" />
-            <element signature="e#3760#3943#0" expanded="false" />
-            <element signature="e#3942#3943#0" expanded="false" />
-            <element signature="method#addNewBTDevice#0;class#BluetoothHelper#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2807,15 +2790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="method#getView#0;class#FrameLogAdapter#0" expanded="false" />
-            <element signature="e#1749#1750#0" expanded="false" />
-            <element signature="e#1785#1786#0" expanded="false" />
-            <element signature="e#2245#2246#0" expanded="false" />
-            <element signature="e#2289#2290#0" expanded="false" />
-            <element signature="e#2326#2327#0" expanded="false" />
-            <element signature="e#2359#2360#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2823,10 +2797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="7" selection-end-column="60" />
-          <folding>
-            <element signature="e#2788#2789#0" expanded="false" />
-            <element signature="e#2817#2818#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2834,7 +2804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="14" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2842,18 +2811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="257" column="52" lean-forward="false" selection-start-line="257" selection-start-column="41" selection-end-line="257" selection-end-column="52" />
-          <folding>
-            <element signature="method#getInstance#0;class#BluetoothCommunicationHandler#0" expanded="false" />
-            <element signature="method#registerListener#0;class#BluetoothCommunicationHandler#0" expanded="false" />
-            <element signature="method#deregisterListener#0;class#BluetoothCommunicationHandler#0" expanded="false" />
-            <element signature="method#connect#0;class#BluetoothCommunicationHandler#0" expanded="false" />
-            <element signature="method#isConnected#0;class#BluetoothCommunicationHandler#0" expanded="false" />
-            <element signature="method#onConnected#0;class#BluetoothCommunicationHandler#0" expanded="false" />
-            <element signature="method#onDisconnected#0;class#BluetoothCommunicationHandler#0" expanded="false" />
-            <element signature="method#onConnectionFailed#0;class#BluetoothCommunicationHandler#0" expanded="false" />
-            <element signature="method#stopThreads#0;class#BluetoothCommunicationHandler#0" expanded="false" />
-            <element signature="class#ConnectThread#0;class#BluetoothCommunicationHandler#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2861,14 +2818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="15" selection-end-column="2" />
-          <folding>
-            <element signature="e#2255#2256#0" expanded="false" />
-            <element signature="e#2282#2283#0" expanded="false" />
-            <element signature="e#2328#2329#0" expanded="false" />
-            <element signature="e#2355#2356#0" expanded="false" />
-            <element signature="e#2403#2404#0" expanded="false" />
-            <element signature="e#2435#2436#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2876,7 +2825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="10" column="92" lean-forward="false" selection-start-line="10" selection-start-column="92" selection-end-line="10" selection-end-column="92" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2884,7 +2832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2892,7 +2839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2900,7 +2846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2908,7 +2853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2916,7 +2860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
           <caret line="761" column="16" lean-forward="false" selection-start-line="761" selection-start-column="16" selection-end-line="761" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2924,10 +2867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="930">
           <caret line="75" column="63" lean-forward="false" selection-start-line="75" selection-start-column="63" selection-end-line="75" selection-end-column="63" />
-          <folding>
-            <element signature="e#2410#2411#0" expanded="false" />
-            <element signature="e#2450#2451#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2935,10 +2874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-140">
           <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-          <folding>
-            <element signature="e#1519#1520#0" expanded="false" />
-            <element signature="e#1582#1583#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2946,6 +2881,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1159">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_settings_actions.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2400">
+          <caret line="160" column="52" lean-forward="false" selection-start-line="160" selection-start-column="52" selection-end-line="160" selection-end-column="52" />
+          <folding>
+            <marker date="1564340844717" expanded="true" signature="5753:5932" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="67" lean-forward="false" selection-start-line="20" selection-start-column="67" selection-end-line="21" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-large/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="52" lean-forward="false" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
           <folding />
         </state>
       </provider>

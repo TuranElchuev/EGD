@@ -89,7 +89,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:lines="1"
-                    android:hint="IP"/>
+                    android:hint="IP"
+                    android:focusedByDefault="false"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -103,7 +104,8 @@
                     android:layout_weight="2"
                     android:lines="1"
                     android:hint="Port"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:focusedByDefault="false"/>
 
             </LinearLayout>
 
@@ -125,7 +127,8 @@
                     android:layout_weight="1"
                     android:lines="1"
                     android:hint="Width"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:focusedByDefault="false"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -139,7 +142,8 @@
                     android:layout_weight="1"
                     android:lines="1"
                     android:hint="Height"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:focusedByDefault="false"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -153,7 +157,8 @@
                     android:layout_weight="1"
                     android:lines="1"
                     android:hint="FPS"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:focusedByDefault="false"/>
 
             </LinearLayout>
 
